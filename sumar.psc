@@ -12,7 +12,12 @@ Algoritmo sumar
 	
 	resultado = numero1 + numero2
 	
-	Escribir "El total es: ", resultado
+	Escribir "La suma es: ", resultado
 	// ejercicio: crear 3 operaciones: /,*,-
-	
+	resultado = numero1	/ numero2
+	Mostrar "La división es:", resultado
+	resultado = numero1	* numero2
+	Mostrar "La Multiplicación es:", resultado
+	resultado = numero1	- numero2
+	Mostrar "La Resta es:", resultado
 FinAlgoritmo
