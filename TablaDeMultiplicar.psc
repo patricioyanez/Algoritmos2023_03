@@ -11,6 +11,8 @@ Algoritmo TablaDeMultiplicar
 			resultado = numero1 * contador
 			Escribir numero1, " x ", contador, " = ", resultado
 		FinPara
+	SiNo
+		Escribir "Debe ingresar un número positivo"
 	FinSi
 	
 FinAlgoritmo
