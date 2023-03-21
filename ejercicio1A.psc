@@ -4,7 +4,7 @@ Algoritmo ejercicio1A
 	// las notas deben estar en el rango de 10 a 70
 	Definir cantidadNotas Como Entero
 	Definir nota Como Entero
-	Definir resultado Como Entero
+	Definir resultado Como Real
 	Escribir "Ingrese cantidad de notas:"
 	Leer cantidadNotas
 	
