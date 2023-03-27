@@ -11,7 +11,7 @@ Algoritmo ejercicio1A
 	Para i <- 1 Hasta cantidadNotas Hacer
 		Escribir "Ingrese nota nro ", i, ": "
 		Leer nota
-		resultado = resultado + nota
+		resultado = resultado + nota // acumulador
 	FinPara
 	
 	resultado = resultado / cantidadNotas
