@@ -8,3 +8,5 @@ print("Nombre:" , nombre)
 print(f"Rut: {nombre}" )
 print("Correo: ",correo )
 print("Télefono:",telefono )
+
+print("Nombre: {}, Rut: {}".format(nombre, rut) )
