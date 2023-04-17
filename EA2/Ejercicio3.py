@@ -21,3 +21,5 @@ else:
         print("Ud está aprobado :)")
     else:
         print("Ud. reprobó :(, lo espero en Enero.")
+
+print("Fin app")
