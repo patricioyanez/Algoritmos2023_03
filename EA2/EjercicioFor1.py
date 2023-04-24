@@ -7,7 +7,7 @@ menoresACero = 0
 igualesACero = 0
 rango = range(5)
 for indice in rango:
-    numero = int(input("Ingrese número: "))
+    numero = int(input(f"Ingrese número {(indice+1)} : "))
 
     if numero > 0:
         mayoresACero += 1 # contador
