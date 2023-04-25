@@ -21,7 +21,4 @@ print("Cantidad de mayores a cero: ", mayoresACero)
 print("Cantidad de menores a cero: ", menoresACero)
 print("Cantidad de iguales a cero: ", igualesACero)
 
-# Ingrese por teclado 10 letras, 
-# indique cuantas de ellas son vocales y cuántas son consonantes.
-
-#
+      
