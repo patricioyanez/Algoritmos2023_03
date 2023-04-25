@@ -12,4 +12,3 @@ if flag:
     print("El número es primo")
 else:
     print("El numero no es primo")
-
