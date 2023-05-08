@@ -13,27 +13,50 @@
 
 
 opcion = ""
-
-while opcion != "4":
+cocacola = 0
+fanta = 0
+sprite = 0
+fueVendida = False
+while opcion != "5":
     print("******* Calculadora *******")
     print("1.- CocaCola")
     print("2.- Fanta")
-    print("3.- Sprinte")
-    print("4.- Salir")
+    print("3.- Sprite")
+    print("4.- Cantidad de ventas")
+    print("5.- Salir")
     opcion = input("El valor de la bebida es $400. Ingrese opción:")
 
-    if opcion not in ("1", "2", "3", "4"):
+    if opcion not in ("1", "2", "3", "4", "5"):
         print("Opción no es válida")
-    elif opcion == "4":
+    elif opcion == "5":
         print("Aplicación cerrada")
+    elif opcion == "4":
+        print("******* Listado de ventas *******")
+        print("CocaCola: ", cocacola)
+        print("Fanta: ", fanta)
+        print("Sprite: ", sprite)
     else:
         monto = int(input("Ingrese cantidad de dinero:"))
         total = monto - 400
         if total == 0:
             print("Vuelto: $0. Gracias por la compra")
+            fueVendida = True
         elif total > 0:
             print("Vuelto: ", total, ". Gracias por su compra")
+            fueVendida = True
         else:
             print("Falta dinero. Vuelva a intentar")
+            fueVendida = False
+        
+        if fueVendida:
+            if opcion == "1":
+                cocacola += 1
+            elif opcion == "2":
+                fanta += 1
+            else:
+                sprite += 1
+
 ## agregar contadores para saber cuantas bebidas se vendieron de cada una. 
 # Crear otra opcion en el menú
+
+# Agregar opción total de ventas: Suma todas las ventas realizadas
