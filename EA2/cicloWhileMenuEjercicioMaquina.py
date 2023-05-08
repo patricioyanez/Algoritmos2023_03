@@ -20,7 +20,7 @@ while opcion != "4":
     print("2.- Fanta")
     print("3.- Sprinte")
     print("4.- Salir")
-    opcion = input("Ingrese opción:")
+    opcion = input("El valor de la bebida es $400. Ingrese opción:")
 
     if opcion not in ("1", "2", "3", "4"):
         print("Opción no es válida")
@@ -35,5 +35,5 @@ while opcion != "4":
             print("Vuelto: ", total, ". Gracias por su compra")
         else:
             print("Falta dinero. Vuelva a intentar")
-## agregar contadores para saber cuantas bebidas se vendieron de cada una. Crear otra opcion en el 
-# menú
+## agregar contadores para saber cuantas bebidas se vendieron de cada una. 
+# Crear otra opcion en el menú
