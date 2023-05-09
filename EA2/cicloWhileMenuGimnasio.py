@@ -38,8 +38,8 @@ while opcion != "5":
         print("Aplicación cerrada")
     elif opcion == "1":
         print("================ Ingreso de datos ================ ")
-        edad = int(input("Ingrese edad: "))
-        genero= input("Ingrese F para femenino y M para Masculino")
+        edad = int(input("Ingrese edad: ")) # except 
+        genero= input("Ingrese F para femenino y M para Masculino: ")
 
         if edad < 10 or edad > 50:
             print("La edad esta fuera del rango")
@@ -58,6 +58,6 @@ while opcion != "5":
             else:
                 m+=1
 
-
+    input("presione enter para continuar")
 
 
