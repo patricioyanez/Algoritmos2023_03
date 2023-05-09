@@ -12,6 +12,8 @@
 # Finalizado el proceso, esperar una nueva orden.
 
 
+import os
+
 opcion = ""
 cocacola = 0
 fanta = 0
@@ -19,6 +21,7 @@ sprite = 0
 fueVendida = False
 totalVentas = 0
 while opcion != "6":
+    os.system ("cls")
     print("******* Maquina de bebidas *******")
     print("1.- CocaCola")
     print("2.- Fanta")
@@ -60,7 +63,7 @@ while opcion != "6":
                 fanta += 1
             else:
                 sprite += 1
-
+    input("Presione enter para continuar")
 ## agregar contadores para saber cuantas bebidas se vendieron de cada una. 
 # Crear otra opcion en el menú
 
