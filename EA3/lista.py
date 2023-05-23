@@ -13,3 +13,24 @@ print("Valor del índice 4: ", lista2[4])
 print("Valor del índice 4: ", lista2[-1])
 print("Valor del índice 3: ", lista2[-2])
 
+print("cantidad de elementos:", len(lista))
+
+lista.append(100) # black box
+print(lista)
+print("cantidad de elementos:", len(lista))
+
+
+lista.reverse()
+print(lista)
+
+lista.insert(2, 500)
+print(lista)
+
+lista3 = [1000, 2000]
+# agrega una lista previa a otra
+lista.extend(lista3)
+print(lista)
+
+#eliminar un elemento
+lista.pop(-2)
+print(lista)
