@@ -6,6 +6,7 @@ matriz = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print("valor de la coordenada 1,1: ", matriz[1,1])
 print("valor de la coordenada 2,0: ", matriz[2,0])
 
+# recorrer la matriz
 for fila in range(3):
     for columna in range(3):
         print("valor : ", matriz[fila,columna])
