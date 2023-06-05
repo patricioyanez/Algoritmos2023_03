@@ -19,7 +19,7 @@ for fila in matriz:
         if fila[indice] % 2 == 0:
             print(fila[indice])
         
-
+### otra forma
 from random import *
 fila = 4
 columna = 4
@@ -35,3 +35,6 @@ for fila in matriz2:
 # con números ceros, excepto la diagonal 
 # principal que debe contener en el mismo 
 # orden los siguientes elementos 1, 2 y 3.
+
+matriz1 = np.diag([1,2,3])
+print(matriz1)
