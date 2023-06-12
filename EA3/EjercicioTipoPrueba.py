@@ -18,3 +18,4 @@
 
 
 # Usar funciones para cada una de las opciones
+# validar que no esten vacios los datos a ingresar
