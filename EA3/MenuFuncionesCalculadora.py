@@ -24,21 +24,21 @@ while opcion != "0":
     print("3. Multiplicación")
     print("4. División")
     print("5. Sumatoria")
-    print("6. Factoria")
+    print("6. Factorial")
     print("0. Salir")
     opcion = input("Ingrese una opción: ")
 
     # validar
-    if opcion not in ("1","2","3","4","5","6"):
+    if opcion not in ("0","1","2","3","4","5","6"):
         print("Opción no válida")
         input("Presione enter para continuar...")
     elif opcion == "5":
         print("Ingrese un numero para obtener la sumatoria: ")
         num1 = int(input("Ingrese un número: "))
-        sumatoria(num1)
+ #       sumatoria(num1)
     else:
         print("Ingrese dos numeros: ")
-        num1 = int(input("Ingrese el primer numero: "))
+        num1 = int(input("Ingrese el primer numero: ")) # try except
         num2 = int(input("Ingrese el segundo numero: "))
         resultado = 0
         if opcion == "1":
