@@ -10,7 +10,11 @@
 # Al arrendar uno, se debe registrar el rut
 # 
 # Las opciones a realizar son:
+
 # 1.-Registro de arriendo
 # 2.-Listar casilleros (ocupados y los que no)
 # 3.-Totalizar la venta hasta el momento.
 # 4.-Desocupar un casillero
+
+
+# Usar funciones para cada una de las opciones
