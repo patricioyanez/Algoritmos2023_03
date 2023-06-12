@@ -21,6 +21,7 @@
 # validar que no esten vacios los datos a ingresar
 
 import numpy as np
+import os # para limpiar pantalla
 casillero = np.array([["","","","",""],
                       ["","","","",""],
                       ["","","","",""]], dtype=object)
@@ -28,6 +29,7 @@ casillero = np.array([["","","","",""],
 totalDeVentas   = 0  # acumulador, suma todos los arriendos realizados
 filaCasillero   = -1 # almacenará el tipo de casillero
 columnaCasillero= -1 # almacenará el nro de casillero
+opcion = ""
 
 def registroArriendo(casillero):
     pass
@@ -41,4 +43,29 @@ def totalVenta(casillero):
 def desocuparCasillero(casillero):
     pass
 
+
+listaDeOpciones = ["0", "1", "2", "3", "4"]
+
+while opcion != "0":
+    os.system("cls")
+    print("====== Administración de Casilleros ======")
+    print("1.- Registrar Arriendo")
+    print("2.- Listar Casilleros")
+    print("3.- Total de ventas")
+    print("4.- Desocupar Casilleros")
+    print("0.- Salir")
+    opcion = input("Ingrese una opción: ")
+
+    #validar si es una opción válida
+    if opcion not in listaDeOpciones:
+        print("****** La opción no es válida ******")
+        input("Presione enter para continuar...")
+    elif opcion == "1":
+        registroArriendo(casillero)
+    elif opcion == "2":
+        listarCasilleros(casillero)
+    elif opcion == "3":
+        totalVenta(casillero)
+    elif opcion == "4":
+        desocuparCasillero(casillero)
 
