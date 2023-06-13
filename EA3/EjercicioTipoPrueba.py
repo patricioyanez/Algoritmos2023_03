@@ -26,13 +26,38 @@ casillero = np.array([["","","","",""],
                       ["","","","",""],
                       ["","","","",""]], dtype=object)
 
+listaDeOpciones = ["0", "1", "2", "3", "4"]
+listaDeOpcionesCasilleros = ["1", "2", "3"]
 totalDeVentas   = 0  # acumulador, suma todos los arriendos realizados
 filaCasillero   = -1 # almacenará el tipo de casillero
 columnaCasillero= -1 # almacenará el nro de casillero
 opcion = ""
 
 def registroArriendo(casillero):
-    pass
+    print("****** Registrar Arriendo ******* ")
+    print("1.- Super Grande")
+    print("2.- Grande")
+    print("3.- Pequeño")
+    opcion2 = input("Seleccione casillero")
+
+    if opcion2 not in listaDeOpcionesCasilleros:
+        print("****** La opción no es válida ******")
+        input("Presione enter para continuar...")
+    else:
+        pass
+
+def mostrarCasillerosDisponibles(fila):
+    disponibles = ""
+    nroCasillero = 1
+    for columna in casillero[fila-1]:
+        if columna == "":
+            disponibles += str(nroCasillero) + " "
+        else:
+            disponibles += "X "
+
+        nroCasillero+=1
+    print("Lista de casilleros de la opción", fila)
+    print(disponibles)
 
 def listarCasilleros(casillero):
     pass
@@ -44,7 +69,6 @@ def desocuparCasillero(casillero):
     pass
 
 
-listaDeOpciones = ["0", "1", "2", "3", "4"]
 
 while opcion != "0":
     os.system("cls")
