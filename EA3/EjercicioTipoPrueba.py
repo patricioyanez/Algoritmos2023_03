@@ -38,13 +38,25 @@ def registroArriendo(casillero):
     print("1.- Super Grande")
     print("2.- Grande")
     print("3.- Pequeño")
-    opcion2 = input("Seleccione casillero")
+    opcion2 = input("Seleccione casillero: ")
 
     if opcion2 not in listaDeOpcionesCasilleros:
         print("****** La opción no es válida ******")
         input("Presione enter para continuar...")
     else:
-        pass
+        fila = int(opcion2)
+        mostrarCasillerosDisponibles(fila)
+
+        nroCasillero = input("Seleccione número de casillero: ")
+        try: # evitar que se "caiga" la aplicación
+            columna = int(nroCasillero) - 1 # convertir a numero
+            fila -= 1
+            rut = input("Ingrese su rut: ")
+            casillero[fila, columna]= rut # casillero[fila, columna]= ""
+        except:
+            print("****** La opción no es válida ******")
+            input("Presione enter para continuar...")
+
 
 def mostrarCasillerosDisponibles(fila):
     disponibles = ""
