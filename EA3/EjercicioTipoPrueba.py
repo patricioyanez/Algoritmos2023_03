@@ -21,87 +21,152 @@
 # validar que no esten vacios los datos a ingresar
 
 import numpy as np
-import os # para limpiar pantalla
-casillero = np.array([["","","","",""],
-                      ["","","","",""],
-                      ["","","","",""]], dtype=object)
+import os
 
-listaDeOpciones = ["0", "1", "2", "3", "4"]
-listaDeOpcionesCasilleros = ["1", "2", "3"]
-totalDeVentas   = 0  # acumulador, suma todos los arriendos realizados
-filaCasillero   = -1 # almacenará el tipo de casillero
-columnaCasillero= -1 # almacenará el nro de casillero
+# declarar variables
+casilleros = np.array([ ["","","","",""],
+                        ["","","","",""],
+                        ["","","","",""],
+                       ], dtype=object)
+
+totalVentas = 0 # acumulador. Para sumar todas las ventas realizadas
+filaCasillero = -1 # almacenará el tipo de casillero
+columnaCasillero = -1 # almacenará el nro del casillero
+
+listaDeOpcionesValidas = ["0","1","2","3","4"]
+listaDeTiposCasilleros = ["1","2","3"]
 opcion = ""
-
-def registroArriendo(casillero):
-    print("****** Registrar Arriendo ******* ")
-    print("1.- Super Grande")
-    print("2.- Grande")
-    print("3.- Pequeño")
-    opcion2 = input("Seleccione casillero: ")
-
-    if opcion2 not in listaDeOpcionesCasilleros:
-        print("****** La opción no es válida ******")
+# declara las funciones para cada opción:
+def registroDeArriendo(casilleros):
+    print("***** Registro de arriendo *****")
+    print("1.- Casillero Super Grande $2.000")
+    print("2.- Casillero Grande $1.000")
+    print("3.- Casillero Pequeño $500")
+    print("0.- Salir")
+    casillero = input("Ingrese tipo de casillero: ")
+    if casillero not in listaDeTiposCasilleros:
+        print("La opción ingresada no es válida")
         input("Presione enter para continuar...")
     else:
-        fila = int(opcion2)
-        mostrarCasillerosDisponibles(fila)
+        fila = int(casillero) # convertir de str a int. es la fila
+        # mostrar casilleros disponibles ???
+        casillerosDisponibles(casilleros, fila)
 
-        nroCasillero = input("Seleccione número de casillero: ")
-        try: # evitar que se "caiga" la aplicación
-            columna = int(nroCasillero) - 1 # convertir a numero
-            fila -= 1
-            rut = input("Ingrese su rut: ")
-            casillero[fila, columna]= rut # casillero[fila, columna]= ""
-        except:
-            print("****** La opción no es válida ******")
+        # try / except
+        # evita la "caida" de la aplicación si la conversión no se lleva a cabo
+        try:
+            nroCasillero = int(input("Ingrese nro del casillero: "))
+            columna = nroCasillero -1 # matriz empieza con indice 0
+            fila -= 1 # matriz empieza con indice 0
+            rut = input("Ingrese su rut:")
+
+            # almacena el rut en el casillero seleccionado
+            casilleros[fila, columna] = rut
+
+            print("Datos guardados")
+            input("Presione enter para continuar...")
+        except: # si ingreso un casillero que no se puede convertir en número o no existe
+            print("Error en la elección del casillero")
             input("Presione enter para continuar...")
 
+def listarCasilleros(casilleros):
+    print("***** Lista de casilleros *****")
+    listado = ""
+    valor = ""
 
-def mostrarCasillerosDisponibles(fila):
-    disponibles = ""
+    for fila in casilleros:
+        nroCasillero = 1
+        for columna in fila:
+            if columna != "":
+                valor = "X"
+            else:
+                valor = str(nroCasillero)
+            listado += valor + " "
+            nroCasillero+=1
+        listado += "\n"
+    print(listado)
+    input("Presione enter para continuar...")
+    
+def totalDeVentas(casilleros):    
+    print("***** Total de recaudación *****")
+    total = 0
+    filita = 0
+    for fila in casilleros:
+        for columna in fila:
+            if columna != "":
+                if filita == 0:
+                    total += 2000
+                elif filita == 1:
+                    total += 1000
+                elif filita == 3:
+                    total += 500
+        filita += 1 # permite saber cuanto cobrar según la fila
+    print("Total de recaudación:", total)
+    input("Presione enter para continuar...")
+
+
+def desocuparCasillero(casilleros):
+    print("***** Desocupar Casillero *****")
+    print("1.- Casillero Super Grande")
+    print("2.- Casillero Grande")
+    print("3.- Casillero Pequeño")
+    print("0.- Salir")
+    casillero = input("Ingrese tipo de casillero: ")
+    if casillero not in listaDeTiposCasilleros:
+        print("La opción ingresada no es válida")
+        input("Presione enter para continuar...")
+    else:
+        fila = int(casillero) # convertir de str a int. es la fila
+        # validar que la conversión sea exitosa
+        try:
+            nroCasillero = int(input("Ingrese nro del casillero: "))
+            columna = nroCasillero -1 # matriz empieza con indice 0
+            fila -= 1 # matriz empieza con indice 0
+            # limpiar casillero
+            casilleros[fila, columna] = ""
+
+            print("Casillero liberado...\n")
+            listarCasilleros(casilleros)
+        except: # si ingreso un casillero que no se puede convertir en número o no existe
+            print("Error en la elección del casillero")
+            input("Presione enter para continuar...")
+
+def casillerosDisponibles(casilleros, fila):
+    listado = ""
     nroCasillero = 1
-    for columna in casillero[fila-1]:
+    for columna in casilleros[fila-1]:
         if columna == "":
-            disponibles += str(nroCasillero) + " "
+            listado += str(nroCasillero) + "\n"
         else:
-            disponibles += "X "
-
+            listado += "X" + "\n"
         nroCasillero+=1
-    print("Lista de casilleros de la opción", fila)
-    print(disponibles)
-
-def listarCasilleros(casillero):
-    pass
-
-def totalVenta(casillero):
-    pass
-
-def desocuparCasillero(casillero):
-    pass
+    print(listado)
 
 
-
+# definir el menú
 while opcion != "0":
     os.system("cls")
-    print("====== Administración de Casilleros ======")
-    print("1.- Registrar Arriendo")
-    print("2.- Listar Casilleros")
+    print("======= Administración de Casilleros ========")
+    print("1.- Registro de arriendo")
+    print("2.- Listar casilleros (ocupados y los que no)")
     print("3.- Total de ventas")
-    print("4.- Desocupar Casilleros")
+    print("4.- Desocupar casillero")
     print("0.- Salir")
-    opcion = input("Ingrese una opción: ")
+    opcion = input("Seleccione una opción: ")
 
-    #validar si es una opción válida
-    if opcion not in listaDeOpciones:
-        print("****** La opción no es válida ******")
+    #validar opción seleccionada
+    if opcion not in listaDeOpcionesValidas:
+        print("La opción ingresada no es válida")
         input("Presione enter para continuar...")
     elif opcion == "1":
-        registroArriendo(casillero)
+        registroDeArriendo(casilleros)
     elif opcion == "2":
-        listarCasilleros(casillero)
+        listarCasilleros(casilleros)
     elif opcion == "3":
-        totalVenta(casillero)
+        totalDeVentas(casilleros)
     elif opcion == "4":
-        desocuparCasillero(casillero)
+        desocuparCasillero(casilleros)
+
+
+
 
